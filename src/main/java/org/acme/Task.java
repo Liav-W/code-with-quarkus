@@ -9,6 +9,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
 @Entity
 @Table(name = "tasks")
@@ -28,4 +30,14 @@ public class Task extends PanacheEntityBase {
 
     @Column(name = "updated_at")
     public LocalDateTime updatedAt;
+
+    public enum Priority {
+        low, medium, high
+    }
+    @Enumerated(EnumType.STRING)
+    @Column(name = "priority", nullable = false)
+    public Priority priority = Priority.low;
+
+    @Column(name = "due_date")
+    public LocalDateTime dueDate;
 }
