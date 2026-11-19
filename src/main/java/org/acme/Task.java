@@ -16,7 +16,7 @@ import jakarta.persistence.Enumerated;
 @Table(name = "tasks")
 public class Task extends PanacheEntityBase {
 
-    @Id
+    @Id //
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tasksSeqGenerator")
     @SequenceGenerator(name = "tasksSeqGenerator", sequenceName = "tasks_SEQ", allocationSize = 50)
     public Long id;
